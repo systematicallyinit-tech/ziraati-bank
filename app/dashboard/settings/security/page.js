@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { useAuth } from '@/app/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from "react-toastify";
-import LoadingScreen from './../loading';
+import LoadingScreen from '@/app/loading';
 import { MdOutlineMailLock } from "react-icons/md";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
