@@ -102,7 +102,7 @@ const faqItems = [
   },
 ];
 
-export default function BireyselEmeklilikPage() {
+export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
 
