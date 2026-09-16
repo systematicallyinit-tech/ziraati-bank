@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Bir bankadan daha fazlası | Ziraati Bankasi",
+  title: "Bir Bankadan Daha Fazlası | Ziraati Bankasi",
   description:
     "Bankacılık ürünleri ve hizmetleri hakkında bilgi verebiliriz. Kredi koşullarını hesaplayabilir ve başvurunuzu işleme koyabiliriz. Ayrıca mevduat getirilerini de hesaplayabiliriz.",
   keywords:
