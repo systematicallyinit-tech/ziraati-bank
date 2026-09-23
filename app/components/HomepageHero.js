@@ -770,7 +770,7 @@ export const HomepageHero = () => {
           FLOATING SUPPORT BUTTON
       ======================================================== */}
 
-      <button
+      <a
         href="https://embed.tawk.to/6ab431538582123445b61beb/1k37u1coh"
         aria-label="Customer support"
         className="
@@ -807,7 +807,7 @@ export const HomepageHero = () => {
         >
           <LuMessageSquareMore size={27} strokeWidth={2} />
         </span>
-      </button>
+      </a>
     </main>
   );
 }
