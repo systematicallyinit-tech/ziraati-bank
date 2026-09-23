@@ -12,7 +12,7 @@ export default function TawkTo() {
           var s1=document.createElement("script"),
               s0=document.getElementsByTagName("script")[0];
           s1.async=true;
-          s1.src='https://embed.tawk.to/6a39604e65eba51d440bfb87/1jro20dkk';
+          s1.src='https://embed.tawk.to/6ab431538582123445b61beb/1k37u1coh';
           s1.charset='UTF-8';
           s1.setAttribute('crossorigin','*');
           s0.parentNode.insertBefore(s1,s0);
