@@ -479,8 +479,8 @@ export const Header = () => {
           FLOATING SUPPORT BUTTON
       ======================================================== */}
 
-      <button
-        href="https://embed.tawk.to/6ab431538582123445b61beb/1k37u1coh"
+      <a
+        href="https://tawk.to/chat/6ab431538582123445b61beb/1k37u1coh"
         aria-label="Customer support"
         className="
                   fixed
@@ -516,7 +516,7 @@ export const Header = () => {
         >
           <LuMessageSquareMore size={27} strokeWidth={2} />
         </span>
-      </button>
+      </a>
     </main>
   );
 }
