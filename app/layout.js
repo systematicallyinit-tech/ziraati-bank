@@ -14,6 +14,10 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+export const viewport = {
+  themeColor: "#e30613",
+}
+
 export const metadata = {
   title: "Ziraat Bankası | Bir Bankadan Daha Fazlası",
   description:
