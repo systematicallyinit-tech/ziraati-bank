@@ -481,6 +481,7 @@ export const Header = () => {
 
       <a
         href="https://tawk.to/chat/6ab431538582123445b61beb/1k37u1coh"
+         target="_blank"
         aria-label="Customer support"
         className="
                   fixed
