@@ -771,6 +771,7 @@ export const HomepageHero = () => {
       ======================================================== */}
 
       <a
+         target="_blank"
         href="https://tawk.to/chat/6ab431538582123445b61beb/1k37u1coh"
         aria-label="Customer support"
         className="
