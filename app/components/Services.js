@@ -1001,6 +1001,7 @@ export const Services = () => {
         w-full
         overflow-x-hidden
         bg-white
+        text-black
       "
     >
       <div
