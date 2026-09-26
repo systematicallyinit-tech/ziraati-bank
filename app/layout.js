@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
-import Providers from "./providers";
-import LiveChat from "./components/LiveChat";
+//import Providers from "./providers";
+//import LiveChat from "./components/LiveChat";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -100,10 +100,7 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
         className={`bg-white w-full h-full text-black min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>
-          {children}
-        </Providers>
-        
+        {children}
       </body>
     </html>
   );
