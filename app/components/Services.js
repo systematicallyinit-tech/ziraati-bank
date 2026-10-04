@@ -377,22 +377,7 @@ function RatesPanel() {
                       gap-[3px]
                     "
                   >
-                    {rate.flow.map((height, index) => (
-                      <span
-                        key={index}
-                        className={`
-                          flex-1
-                          rounded-t-[3px]
-                          ${
-                            up
-                              ? "bg-green-500"
-                              : "bg-[#ed0016]"
-                          }
-                        `}
-                        style={{
-                          height: `${height}%`,
-                          opacity: 0.45 + index / 20,
-                        }}
+                    REMOVED ME
                       />
                     ))}
                   </div>
