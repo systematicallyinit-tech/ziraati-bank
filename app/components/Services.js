@@ -377,7 +377,22 @@ function RatesPanel() {
                       gap-[3px]
                     "
                   >
-                    REMOVED ME
+                    {rate.flow.map((height, index) => (
+                      <span
+                        key={index}
+                        className={`
+                          flex-1
+                          rounded-t-[3px]
+                          ${
+                            up
+                              ? "bg-green-500"
+                              : "bg-[#ed0016]"
+                          }
+                        `}
+                        style={{
+                          height: `${height}%`,
+                          opacity: 0.45 + index / 20,
+                        }}
                       />
                     ))}
                   </div>
@@ -628,17 +643,6 @@ function DepositCalculator() {
                   <option value="USD">USD</option>
                   <option value="EUR">EUR</option>
                 </select>
-
-                <ChevronDown
-                  size={19}
-                  className="
-                    absolute
-                    right-5
-                    top-1/2
-                    -translate-y-1/2
-                    pointer-events-none
-                  "
-                />
               </div>
 
               {/* Days */}
@@ -1614,17 +1618,6 @@ function NearestAgricultural() {
               </option>
             ))}
           </select>
-
-          <ChevronDown
-            size={18}
-            className="
-              absolute
-              right-5
-              top-1/2
-              -translate-y-1/2
-              pointer-events-none
-            "
-          />
         </div>
 
         {/* District */}
@@ -1670,17 +1663,6 @@ function NearestAgricultural() {
               </option>
             ))}
           </select>
-
-          <ChevronDown
-            size={18}
-            className="
-              absolute
-              right-5
-              top-1/2
-              -translate-y-1/2
-              pointer-events-none
-            "
-          />
         </div>
 
         {/* Search button */}
