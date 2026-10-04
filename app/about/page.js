@@ -393,7 +393,7 @@ export default function OurBankPage() {
 
             <OurBankCard
               title="About Us"
-              image="/images/about-us.jpg"
+              image="/assets/bank-building-reference.jpg"
               imageAlt="About Us"
             >
 
@@ -454,7 +454,7 @@ export default function OurBankPage() {
 
             <OurBankCard
               title="Culture and Arts"
-              image="/images/culture-and-arts.jpg"
+              image="/assets/iPhone_mockup.png"
               imageAlt="Culture and Arts"
             >
 
@@ -495,7 +495,7 @@ export default function OurBankPage() {
 
             <OurBankCard
               title="Sustainability"
-              image="/images/sustainability.jpg"
+              image="/assets/Bankkart_Banner.png"
               imageAlt="Sustainability"
             >
 
