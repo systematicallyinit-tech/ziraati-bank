@@ -444,7 +444,7 @@ export default function InvestorRelationsPage() {
 
             <InvestorCard
               title="Corporate Information"
-              image="/images/corporate-information.jpg"
+              image="/assets/isabel_dos_santos.me_100947349_1127568384280658_1545695050283645681_n.jpg"
               imageAlt="Corporate Information"
             >
               <div className="w-full lg:w-[52%]">
@@ -507,7 +507,7 @@ export default function InvestorRelationsPage() {
 
             <InvestorCard
               title="Corporate Governance"
-              image="/images/corporate-governance.jpg"
+              image="/assets/hands.jfif"
               imageAlt="Corporate Governance"
             >
               <div className="w-full lg:w-[52%]">
@@ -720,7 +720,7 @@ export default function InvestorRelationsPage() {
                 "
               >
                 <img
-                  src="/images/financial-information.jpg"
+                  src="/assets/financial.png"
                   alt="Financial Information"
                   className="
                     h-[160px]
