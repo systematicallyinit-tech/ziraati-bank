@@ -1513,6 +1513,18 @@ function NearestAgricultural() {
             `}
           >
             <span
+              className="
+                relative
+                block
+                w-5
+                h-5
+                rounded-full
+                border-2
+                border-gray-300
+                bg-white
+              "
+            >
+              <span
                 className="
                   absolute
                   top-1/2
@@ -1525,6 +1537,7 @@ function NearestAgricultural() {
                   bg-[#ed0016]
                 "
               />
+            </span>
 
             ATM
           </button>
