@@ -1772,27 +1772,7 @@ function NearestAgricultural() {
           </div>
         )}
 
-        {/* No Results */}
-
-        {!loading &&
-          (city || district || query) &&
-          results.length === 0 && (
-            <div
-              className="
-                mt-3
-                text-center
-                text-[12px]
-                text-gray-500
-              "
-            >
-              No matching{" "}
-              {type === "branch"
-                ? "branch"
-                : "ATM"}{" "}
-              area found. Try another city,
-              district or address.
-            </div>
-          )}
+        
       </div>
     </section>
   );
