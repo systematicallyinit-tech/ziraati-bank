@@ -1001,7 +1001,7 @@ export const HomepageHero = () => {
                   place-items-center
                   rounded-full
                   border-[7px]
-                  border-[#a6000e]
+                  border-black/20
                   bg-white/90
                   cursor-pointer
                   transition
