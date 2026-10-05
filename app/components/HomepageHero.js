@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
-import { LuMessageSquareMore } from 'react-icons/lu';
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import { LuMessageSquareMore, LuSearch, LuX } from "react-icons/lu";
 
 /* ============================================================
    METAGRAM HERO SLIDES
@@ -30,7 +30,8 @@ const heroSlides = [
 
   {
     id: 3,
-    title: "ZIRAAT OPEN BANKING: OPEN BANKING FOR ALL YOUR ACCOUNTS AND CARDS!",
+    title:
+      "ZIRAAT OPEN BANKING: OPEN BANKING FOR ALL YOUR ACCOUNTS AND CARDS!",
     description: "",
     image: "/img/slide3.jpg",
     button: "Detailed Information",
@@ -57,11 +58,11 @@ const heroSlides = [
     button: "Detailed Information",
     buttonLink: "/signup",
   },
+
   {
     id: 6,
     title: "Ziraat Bank offers a full export support loan package.",
-    description:
-      "",
+    description: "",
     image: "/img/slide6.png",
     button: "Detailed Information",
     buttonLink: "/signup",
@@ -76,17 +77,12 @@ export const HomepageHero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [paused, setPaused] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   const slide = heroSlides[currentSlide];
 
-  /* ------------------------------------------------------------
+  /* ============================================================
      AUTOMATIC SLIDER
-  ------------------------------------------------------------ */
+  ============================================================ */
 
   useEffect(() => {
     if (paused) return;
@@ -100,133 +96,179 @@ export const HomepageHero = () => {
     return () => clearInterval(timer);
   }, [paused]);
 
-  /* ------------------------------------------------------------
+  /* ============================================================
      CHANGE SLIDE
-  ------------------------------------------------------------ */
+  ============================================================ */
 
   const changeSlide = (index) => {
     setCurrentSlide(index);
   };
 
+  /* ============================================================
+     CLOSE MOBILE MENU
+  ============================================================ */
+
+  const closeMobileMenu = () => {
+    setMobileMenu(false);
+  };
+
   return (
-    <main className="min-h-screen bg-white text-gray-900">
+    <main className="min-h-screen overflow-x-hidden bg-white text-gray-900">
       {/* ========================================================
-          TOP BAR
+          DESKTOP TOP BAR
       ======================================================== */}
 
-      <div className="hidden bg-isoColor1 text-white lg:block">
-        <div className="mx-auto flex h-[46px] max-w-[1440px] items-center justify-between px-8">
+      <div className="hidden h-[48px] bg-[#ed0016] text-white lg:block">
+        <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-8">
           {/* LEFT */}
 
-          <div className="flex items-center gap-8 text-sm font-medium">
-            <a href="/support" className="transition hover:opacity-75">
+          <div className="flex items-center gap-8 text-[14px] font-medium">
+            <a
+              href="/support"
+              className="flex items-center gap-2 transition-opacity hover:opacity-75"
+            >
+              <span className="text-[17px]">⌘</span>
               Super Branch
             </a>
 
-            <a href="/locations" className="transition hover:opacity-75">
+            <a
+              href="/locations"
+              className="flex items-center gap-2 transition-opacity hover:opacity-75"
+            >
+              <span className="text-[17px]">Z</span>
               Trade Route
+            </a>
+
+            <a
+              href="/transformation"
+              className="flex items-center gap-2 transition-opacity hover:opacity-75"
+            >
+              <span className="text-[17px]">⌁</span>
+              Transformation
             </a>
           </div>
 
           {/* RIGHT */}
 
-          <div className="flex items-center gap-7 text-sm">
-            <a href="/fees" className="hover:underline">
+          <div className="flex items-center gap-6 text-[13px]">
+            <a href="/fees" className="transition hover:underline">
               Product and Service Fees
             </a>
-            <a href="/campaigns" className="hover:underline">
+
+            <a href="/campaigns" className="transition hover:underline">
               Campaigns
             </a>
-            <a href="/digital-banking" className="hover:underline">
+
+            <a href="/digital-banking" className="transition hover:underline">
               Digital Banking
             </a>
 
-            <a href="/investor-relations" className="hover:underline">
+            <a
+              href="/investor-relations"
+              className="transition hover:underline"
+            >
               Investor Relations
             </a>
 
-            <a href="/about" className="hover:underline">
+            <a href="/about" className="transition hover:underline">
               Our Bank
             </a>
-            <span className="opacity-50">|</span>
-            <a href="/" className="hover:underline">
+
+            <span className="h-5 w-px bg-white/50" />
+
+            <a href="/" className="transition hover:underline">
               EN
             </a>
           </div>
         </div>
       </div>
 
-      <a
-        href="/fees"
-        className="block text-xs text-white bg-isoColor1 px-4 py-3 lg:hidden"
-      >
-        Product and Service Fees
-      </a>
+      {/* ========================================================
+          MOBILE TOP BAR
+      ======================================================== */}
+
+      <div className="block bg-[#ed0016] px-4 py-2.5 lg:hidden">
+        <a
+          href="/fees"
+          className="block text-[11px] font-medium text-white"
+        >
+          Product and Service Fees
+        </a>
+      </div>
 
       {/* ========================================================
           MAIN NAVIGATION
       ======================================================== */}
 
-      <header className="relative z-50 border-b border-gray-100 bg-white">
-        <div className="mx-auto flex h-[82px] max-w-[1440px] items-center justify-between px-5 lg:px-8">
-          {/* ====================================================
-              LOGO
-          ==================================================== */}
+      <header className="relative z-[100] border-b border-gray-100 bg-white">
+        {/* ======================================================
+            DESKTOP HEADER
+        ====================================================== */}
 
-          <a href="/" className="flex items-center gap-3">
-            {/* M LOGO 
+        <div className="mx-auto hidden h-[82px] max-w-[1440px] items-center justify-between px-8 lg:flex">
+          {/* LOGO */}
 
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-isoColor1 text-[26px] font-black text-white shadow-sm">
-              Z
-            </div> */}
-
+          <a href="/" className="shrink-0">
             <Image
-              src={"/icons/logo.gif"}
-              alt={"Ziraat Bank Logo"}
-              width={100}
-              height={100}
-              className="h-11 w-auto lg:block"
+              src="/icons/logo.gif"
+              alt="Ziraat Bank Logo"
+              width={170}
+              height={60}
+              priority
+              className="h-[46px] w-auto object-contain"
             />
-
-            {/* COMPANY NAME 
-
-            <div className="leading-none hidden">
-              <div className="text-[19px] font-extrabold tracking-tight text-black">
-                Ziraat Bank
-              </div>
-            </div> */}
           </a>
 
-          {/* ====================================================
-              DESKTOP NAV
-          ==================================================== */}
+          {/* DESKTOP NAV */}
 
-          <nav className="hidden items-center lg:flex">
+          <nav className="flex items-center">
             <a
               href="/signup"
-              className="border-r border-gray-300 px-5 text-[16px] font-semibold transition hover:text-isoColor1"
+              className="
+                border-r
+                border-gray-300
+                px-5
+                text-[16px]
+                font-semibold
+                transition
+                hover:text-[#ed0016]
+              "
             >
               Individual
             </a>
 
             <a
               href="/signup"
-              className="border-r border-gray-300 px-5 text-[16px] font-semibold transition hover:text-isoColor1"
+              className="
+                border-r
+                border-gray-300
+                px-5
+                text-[16px]
+                font-semibold
+                transition
+                hover:text-[#ed0016]
+              "
             >
               Commercial
             </a>
 
             <a
               href="/signup"
-              className="px-5 text-[16px] font-semibold transition hover:text-isoColor1"
+              className="
+                px-5
+                text-[16px]
+                font-semibold
+                transition
+                hover:text-[#ed0016]
+              "
             >
               Institutional
             </a>
 
-            {/* SERVICES */}
+            {/* OFFLINE */}
 
             <a
-            href='/request-offline'
+              href="/request-offline"
               className="
                 ml-3
                 flex
@@ -237,10 +279,11 @@ export const HomepageHero = () => {
                 border-2
                 border-gray-300
                 px-6
+                text-[15px]
                 font-semibold
                 transition
-                hover:border-isoColor1
-                hover:text-isoColor1
+                hover:border-[#ed0016]
+                hover:text-[#ed0016]
               "
             >
               Offline
@@ -249,6 +292,7 @@ export const HomepageHero = () => {
             {/* SEARCH */}
 
             <button
+              type="button"
               aria-label="Search"
               className="
                 ml-2
@@ -260,13 +304,13 @@ export const HomepageHero = () => {
                 rounded-full
                 border-2
                 border-gray-300
-                text-xl
+                text-gray-900
                 transition
-                hover:border-isoColor1
-                hover:text-isoColor1
+                hover:border-[#ed0016]
+                hover:text-[#ed0016]
               "
             >
-              ⌕
+              <LuSearch size={21} />
             </button>
 
             {/* INTERNET BANKING */}
@@ -281,12 +325,13 @@ export const HomepageHero = () => {
                 justify-center
                 rounded-full
                 border-2
-                border-isoColor1
+                border-[#ed0016]
                 px-7
                 text-[16px]
                 font-semibold
+                text-gray-900
                 transition
-                hover:bg-isoColor1/70
+                hover:bg-[#ed0016]
                 hover:text-white
               "
             >
@@ -304,173 +349,242 @@ export const HomepageHero = () => {
                 items-center
                 justify-center
                 rounded-full
-                bg-isoColor1
+                border-2
+                border-[#ed0016]
+                bg-white
                 px-7
                 text-[16px]
                 font-semibold
-                text-white
+                text-gray-900
                 transition
-                hover:bg-isoColor1/70
+                hover:bg-[#ed0016]
+                hover:text-white
               "
             >
               Become a Customer
             </a>
           </nav>
-
-          {/* ====================================================
-              MOBILE MENU BUTTON
-          ==================================================== */}
-
-          <button
-            onClick={() => setMobileMenu(!mobileMenu)}
-            className="
-              flex
-              h-11
-              w-11
-              items-center
-              justify-center
-              rounded-lg
-              text-2xl
-              text-gray-900
-              lg:hidden
-            "
-            aria-label="Toggle menu"
-          >
-            {mobileMenu ? "✕" : "☰"}
-          </button>
-        </div>
-
-        <div className="flex items-center px-4 pb-4 justify-between bg-white lg:hidden">
-          {/* MOBILE LOGIN */}
-
-          <a
-            href="/login"
-            className="
-                  mt-5
-                  flex
-                  h-10
-                  px-4
-                  items-center
-                  justify-center
-                  rounded-full
-                  border-2
-                  border-isoColor1
-                  font-medium
-                  text-sm
-                  text-black
-                "
-          >
-            Internet Banking
-          </a>
-
-          {/* MOBILE SIGNUP */}
-
-          <a
-            href="/signup"
-            className="
-                  mt-5
-                  flex
-                  h-10
-                  px-4
-                  items-center
-                  justify-center
-                  rounded-full
-                  border-2
-                  border-isoColor1
-                  font-medium
-                  text-sm
-                  text-black
-                "
-          >
-            Become a Customer
-          </a>
         </div>
 
         {/* ======================================================
-            MOBILE NAVIGATION
+            MOBILE HEADER
+        ====================================================== */}
+
+        <div className="block lg:hidden">
+          <div className="flex h-[66px] items-center justify-between px-4">
+            {/* LOGO */}
+
+            <a href="/" className="shrink-0">
+              <Image
+                src="/icons/logo.gif"
+                alt="Ziraat Bank Logo"
+                width={145}
+                height={55}
+                priority
+                className="h-[38px] w-auto object-contain"
+              />
+            </a>
+
+            {/* MENU BUTTON */}
+
+            <button
+              type="button"
+              onClick={() => setMobileMenu(!mobileMenu)}
+              aria-label="Toggle menu"
+              className="
+                flex
+                h-10
+                w-10
+                items-center
+                justify-center
+                text-[25px]
+                text-black
+              "
+            >
+              {mobileMenu ? <LuX size={25} /> : "☰"}
+            </button>
+          </div>
+
+          {/* MOBILE LOGIN BUTTONS */}
+
+          <div className="flex items-center gap-2 px-4 pb-3">
+            <a
+              href="/login"
+              className="
+                flex
+                h-[38px]
+                flex-1
+                items-center
+                justify-center
+                rounded-full
+                border-[1.5px]
+                border-[#ed0016]
+                px-2
+                text-[11px]
+                font-semibold
+                text-black
+              "
+            >
+              Internet Banking
+            </a>
+
+            <a
+              href="/signup"
+              className="
+                flex
+                h-[38px]
+                flex-1
+                items-center
+                justify-center
+                rounded-full
+                border-[1.5px]
+                border-[#ed0016]
+                px-2
+                text-[11px]
+                font-semibold
+                text-black
+              "
+            >
+              Become a Customer
+            </a>
+          </div>
+        </div>
+
+        {/* ======================================================
+            MOBILE MENU
         ====================================================== */}
 
         {mobileMenu && (
-          <div className="absolute left-0 right-0 h-fit top-full border-t border-gray-100 bg-white px-5 py-6 shadow-2xl lg:hidden">
-            <nav className="flex flex-col justify-center items-center w-full text-lg gap-2 py-10">
+          <div
+            className="
+              absolute
+              left-0
+              right-0
+              top-full
+              z-[110]
+              max-h-[calc(100vh-100px)]
+              overflow-y-auto
+              border-t
+              border-gray-200
+              bg-white
+              shadow-2xl
+              lg:hidden
+            "
+          >
+            {/* TOP MINI ITEMS */}
+
+            <div className="flex items-center gap-1 overflow-x-auto px-3 py-2">
+              <MobilePill text="◉" />
+              <MobilePill text="Ziraat" />
+              <MobilePill text="Cards bankkart" />
+              <MobilePill text="Süper Şube" />
+
+              <span className="ml-auto shrink-0 text-[10px] font-medium">
+                English
+              </span>
+            </div>
+
+            {/* MOBILE LOGO ROW */}
+
+            <div className="flex items-center justify-between border-b border-gray-100 px-4 py-4">
+              <Image
+                src="/icons/logo.gif"
+                alt="Ziraat Bank Logo"
+                width={150}
+                height={45}
+                className="h-[34px] w-auto object-contain"
+              />
+
+              <button
+                type="button"
+                onClick={closeMobileMenu}
+                aria-label="Close menu"
+                className="text-2xl font-light text-black"
+              >
+                <LuX size={22} />
+              </button>
+            </div>
+
+            {/* MAIN LINKS */}
+
+            <nav className="px-4 pt-10">
               <MobileLink
                 href="/signup"
                 text="Individual"
-                close={() => setMobileMenu(false)}
+                close={closeMobileMenu}
               />
 
               <MobileLink
                 href="/signup"
                 text="Commercial"
-                close={() => setMobileMenu(false)}
+                close={closeMobileMenu}
               />
 
-              <a
-                href={"/signup"}
-                onClick={close}
-                className="
-                py-4
-                text-[16px]
-                font-semibold
-                w-full
-                text-center
-                transition
-                hover:text-isoColor1
-              "
-              >
-                Institutional
-              </a>
+              <MobileLink
+                href="/signup"
+                text="Institutional"
+                close={closeMobileMenu}
+              />
 
-              <div className="py-8"></div>
+              <MobileLink
+                href="/request-offline"
+                text="Offline"
+                close={closeMobileMenu}
+              />
+            </nav>
 
-              <div className="flex w-fit items-center gap-5 text-xs font-medium text-black">
+            {/* BOTTOM LINKS */}
+
+            <div className="mt-20 px-4">
+              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[9px] font-medium text-black">
                 <a href="/about" className="hover:underline">
                   About Our Bank
                 </a>
 
-                <span className="opacity-50">|</span>
+                <span className="h-3 w-px bg-gray-300" />
 
                 <a href="/investor-relations" className="hover:underline">
                   Investor Relations
                 </a>
 
-                <span className="opacity-50">|</span>
+                <span className="h-3 w-px bg-gray-300" />
 
                 <a href="/digital-banking" className="hover:underline">
                   Digital Banking
                 </a>
 
-                <span className="opacity-50">|</span>
+                <span className="h-3 w-px bg-gray-300" />
 
                 <a href="/campaigns" className="hover:underline">
                   Campaigns
                 </a>
               </div>
 
-              {/* MOBILE LOGIN */}
+              {/* CALL SEARCH */}
 
               <button
                 type="button"
                 className="
-                  mt-5
+                  mb-5
+                  mt-4
                   flex
-                  h-12
+                  h-[40px]
                   w-full
                   items-center
                   justify-between
-                  px-6
                   rounded-full
-                  text-sm
-                  border-2
+                  border
                   border-gray-300
-                  font-semibold
-                  text-gray-500
+                  px-5
+                  text-[11px]
+                  font-medium
+                  text-gray-600
                 "
               >
                 <span>CALL</span>
-                <span className="text-3xl">⌕</span>
+                <LuSearch size={18} />
               </button>
-            </nav>
+            </div>
           </div>
         )}
       </header>
@@ -480,78 +594,156 @@ export const HomepageHero = () => {
       ======================================================== */}
 
       <section
-        className="relative overflow-hidden bg-isoColor1"
+        className="
+          relative
+          overflow-hidden
+          bg-[#ed0016]
+        "
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
         {/* ======================================================
-            SUBTLE BACKGROUND PATTERN
+            ZIRAAT STYLE GEOMETRIC BACKGROUND
         ====================================================== */}
 
-        <div className="pointer-events-none absolute inset-0 opacity-[0.08]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(
-                  135deg,
-                  transparent 45%,
-                  white 46%,
-                  transparent 47%
-                ),
-                linear-gradient(
-                  45deg,
-                  transparent 45%,
-                  white 46%,
-                  transparent 47%
-                )
-              `,
-              backgroundSize: "140px 140px",
-            }}
-          />
-        </div>
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+            opacity-[0.16]
+          "
+          style={{
+            backgroundImage: `
+              linear-gradient(
+                135deg,
+                transparent 0%,
+                transparent 44%,
+                rgba(120,0,0,0.35) 44.2%,
+                rgba(120,0,0,0.35) 44.7%,
+                transparent 45%
+              ),
+              linear-gradient(
+                45deg,
+                transparent 0%,
+                transparent 48%,
+                rgba(120,0,0,0.25) 48.2%,
+                rgba(120,0,0,0.25) 48.7%,
+                transparent 49%
+              ),
+              linear-gradient(
+                135deg,
+                transparent 0%,
+                transparent 68%,
+                rgba(255,255,255,0.08) 68.2%,
+                rgba(255,255,255,0.08) 69%,
+                transparent 69.2%
+              )
+            `,
+            backgroundSize: "180px 180px",
+          }}
+        />
+
+        {/* LARGE DIAGONAL SHAPES */}
+
+        <div className="pointer-events-none absolute -left-20 top-20 h-[360px] w-[360px] rotate-45 border border-black/10" />
+
+        <div className="pointer-events-none absolute -right-40 bottom-[-250px] h-[600px] w-[600px] rotate-45 border border-black/10" />
 
         <div className="relative mx-auto max-w-[1440px]">
           {/* ====================================================
               DESKTOP HERO
           ==================================================== */}
 
-          <div className="hidden min-h-[470px] grid-cols-[40%_60%] lg:grid">
-            {/* ------------------------------------------------
-                LEFT CONTENT
-            ------------------------------------------------ */}
+          <div className="relative hidden min-h-[470px] lg:block">
+            {/* ==================================================
+                IMAGE
+            ================================================== */}
 
-            <div className="relative z-10 flex flex-col justify-center px-8 py-14 xl:px-12">
+            <div className="absolute right-0 top-0 h-full w-[60%] overflow-hidden">
+              <img
+                key={slide.image}
+                src={slide.image}
+                alt={slide.title}
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                  transition-all
+                  duration-700
+                "
+              />
+
+              {/* RED BLEND */}
+
+              <div
+                className="
+                  absolute
+                  inset-y-0
+                  left-0
+                  w-[30%]
+                  bg-gradient-to-r
+                  from-[#ed0016]
+                  via-[#ed0016]/60
+                  to-transparent
+                "
+              />
+
+              {/* TOP BLEND */}
+
+              <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-[#ed0016]/20 to-transparent" />
+            </div>
+
+            {/* ==================================================
+                CONTENT
+            ================================================== */}
+
+            <div
+              className="
+                relative
+                z-20
+                flex
+                min-h-[470px]
+                w-[58%]
+                flex-col
+                justify-center
+                px-8
+                py-12
+                xl:px-8
+              "
+            >
               <h1
                 key={`title-${slide.id}`}
                 className="
-                  max-w-[600px]
+                  max-w-[790px]
                   text-[36px]
                   font-black
                   uppercase
-                  leading-[1.12]
-                  tracking-tight
+                  leading-[1.18]
+                  tracking-[-0.8px]
                   text-white
-                  xl:text-[42px]
+                  xl:text-[41px]
                 "
               >
                 {slide.title}
               </h1>
 
-              <p
-                key={`description-${slide.id}`}
-                className="
-                  mt-5
-                  max-w-[590px]
-                  text-[18px]
-                  font-medium
-                  leading-8
-                  text-white
-                  xl:text-[20px]
-                "
-              >
-                {slide.description}
-              </p>
+              {slide.description && (
+                <p
+                  key={`description-${slide.id}`}
+                  className="
+                    mt-5
+                    max-w-[700px]
+                    text-[19px]
+                    font-semibold
+                    leading-[1.65]
+                    text-white
+                    xl:text-[21px]
+                  "
+                >
+                  {slide.description}
+                </p>
+              )}
 
               {/* CTA */}
 
@@ -559,19 +751,24 @@ export const HomepageHero = () => {
                 <a
                   href={slide.buttonLink}
                   className="
-                    mt-7
+                    mt-6
                     inline-flex
+                    min-w-[215px]
+                    items-center
+                    justify-center
                     rounded-full
                     border-[5px]
-                    border-black/70
+                    border-[#a6000e]
                     bg-white
                     px-8
-                    py-3
+                    py-2.5
                     text-[16px]
                     font-bold
                     text-gray-900
-                    shadow-lg
-                    transition
+                    shadow-md
+                    transition-all
+                    duration-200
+                    hover:scale-[1.02]
                     hover:bg-gray-100
                   "
                 >
@@ -579,48 +776,50 @@ export const HomepageHero = () => {
                 </a>
               </div>
 
-              {/* =================================================
-                  SLIDER CONTROLS
-              ================================================= */}
+              {/* ==================================================
+                  DESKTOP SLIDER CONTROLS
+              ================================================== */}
 
-              <div className="mt-14 flex items-center gap-2">
+              <div className="absolute bottom-6 left-8 flex items-center gap-2">
                 {heroSlides.map((item, index) => (
                   <button
                     key={item.id}
                     onClick={() => changeSlide(index)}
                     aria-label={`Go to slide ${index + 1}`}
                     className={`
-                      h-3
-                      w-3
+                      h-[11px]
+                      w-[11px]
                       rounded-full
-                      border-2
+                      border
                       border-white
                       transition-all
+                      duration-200
                       ${
                         currentSlide === index
-                          ? "scale-125 bg-white"
-                          : "bg-white/40"
+                          ? "h-[18px] w-[18px] border-[3px] bg-[#ed0016] ring-2 ring-white"
+                          : "bg-white/45"
                       }
                     `}
                   />
                 ))}
 
-                {/* PLAY / PAUSE */}
+                {/* PAUSE */}
 
                 <button
+                  type="button"
                   onClick={() => setPaused(!paused)}
-                  aria-label={paused ? "Play" : "Pause"}
+                  aria-label={paused ? "Play slider" : "Pause slider"}
                   className="
-                    ml-2
+                    ml-1
                     flex
-                    h-7
-                    w-7
+                    h-[23px]
+                    w-[23px]
                     items-center
                     justify-center
                     rounded-full
-                    border-2
+                    border
                     border-white
-                    text-[10px]
+                    text-[8px]
                     font-bold
                     text-white
                   "
@@ -629,41 +828,6 @@ export const HomepageHero = () => {
                 </button>
               </div>
             </div>
-
-            {/* ------------------------------------------------
-                RIGHT IMAGE
-            ------------------------------------------------ */}
-
-            <div className="relative min-h-[470px] overflow-hidden">
-              <img
-                key={slide.image}
-                src={slide.image}
-                alt={slide.title}
-                className="
-                  absolute
-                  inset-0
-                  h-full
-                  w-full
-                  object-cover
-                  transition-opacity
-                  duration-700
-                "
-              />
-
-              {/* BLUE IMAGE BLEND */}
-
-              <div
-                className="
-                absolute
-                inset-y-0
-                left-0
-                w-40
-                bg-gradient-to-r
-                from-isoColor1/50
-                to-transparent
-              "
-              />
-            </div>
           </div>
 
           {/* ====================================================
@@ -671,26 +835,20 @@ export const HomepageHero = () => {
           ==================================================== */}
 
           <div className="block lg:hidden">
-            {/* IMAGE */}
+            {/* ==================================================
+                MOBILE CONTENT
+            ================================================== */}
 
-            <div className="relative h-[230px] overflow-hidden sm:h-[300px]">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="h-full w-full object-cover"
-              />
-            </div>
-
-            {/* BLUE CONTENT */}
-
-            <div className="px-5 pb-7 pt-7">
+            <div className="relative z-10 px-5 pb-6 pt-6">
               <h1
+                key={`mobile-title-${slide.id}`}
                 className="
                   text-center
                   text-[25px]
                   font-black
                   uppercase
-                  leading-[1.18]
+                  leading-[1.15]
+                  tracking-[-0.3px]
                   text-white
                   sm:text-[30px]
                 "
@@ -698,20 +856,51 @@ export const HomepageHero = () => {
                 {slide.title}
               </h1>
 
-              <p
+              {slide.description && (
+                <p
+                  key={`mobile-description-${slide.id}`}
+                  className="
+                    mx-auto
+                    mt-3
+                    max-w-[600px]
+                    text-center
+                    text-[14px]
+                    font-semibold
+                    leading-[1.45]
+                    text-white
+                    sm:text-[16px]
+                  "
+                >
+                  {slide.description}
+                </p>
+              )}
+
+              {/* MOBILE IMAGE */}
+
+              <div
                 className="
+                  relative
                   mx-auto
-                  mt-4
-                  max-w-xl
-                  text-center
-                  text-[15px]
-                  font-medium
-                  leading-6
-                  text-white
+                  mt-5
+                  h-[180px]
+                  w-full
+                  max-w-[520px]
+                  overflow-hidden
+                  bg-white
+                  sm:h-[270px]
                 "
               >
-                {slide.description}
-              </p>
+                <img
+                  key={`mobile-image-${slide.image}`}
+                  src={slide.image}
+                  alt={slide.title}
+                  className="
+                    h-full
+                    w-full
+                    object-cover
+                  "
+                />
+              </div>
 
               {/* CTA */}
 
@@ -721,42 +910,67 @@ export const HomepageHero = () => {
                   className="
                     mt-5
                     inline-flex
+                    min-w-[175px]
+                    items-center
+                    justify-center
                     rounded-full
                     border-[4px]
-                    border-[#000]
+                    border-[#a6000e]
                     bg-white
-                    px-7
-                    py-2.5
-                    text-sm
+                    px-6
+                    py-2
+                    text-[13px]
                     font-bold
                     text-gray-900
+                    shadow-md
                   "
                 >
                   {slide.button}
                 </a>
               </div>
 
-              {/* MOBILE DOTS */}
+              {/* MOBILE SLIDER */}
 
-              <div className="mt-6 flex justify-center gap-2">
+              <div className="mt-5 flex items-center justify-center gap-[5px]">
                 {heroSlides.map((item, index) => (
                   <button
                     key={item.id}
+                    type="button"
                     onClick={() => changeSlide(index)}
+                    aria-label={`Go to slide ${index + 1}`}
                     className={`
-                      h-2.5
-                      w-2.5
                       rounded-full
                       border
                       border-white
-                      ${currentSlide === index ? "bg-white" : "bg-white/40"}
+                      transition-all
+                      duration-200
+                      ${
+                        currentSlide === index
+                          ? "h-[8px] w-[8px] bg-white"
+                          : "h-[7px] w-[7px] bg-white/40"
+                      }
                     `}
                   />
                 ))}
 
                 <button
+                  type="button"
                   onClick={() => setPaused(!paused)}
-                  className="ml-1 text-xs text-white"
+                  aria-label={paused ? "Play slider" : "Pause slider"}
+                  className="
+                    ml-1
+                    flex
+                    h-[17px]
+                    w-[17px]
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white
+                    text-[6px]
+                    font-bold
+                    text-white
+                  "
                 >
                   {paused ? "▶" : "Ⅱ"}
                 </button>
@@ -771,48 +985,58 @@ export const HomepageHero = () => {
       ======================================================== */}
 
       <a
-         target="_blank"
+        target="_blank"
+        rel="noopener noreferrer"
         href="https://tawk.to/chat/6ab431538582123445b61beb/1k37u1coh"
         aria-label="Customer support"
         className="
-                  fixed
-                  bottom-6
-                  right-5
-                  z-40
-                  w-[78px]
-                  h-[78px]
-                  p-0
-                  grid
-                  place-items-center
-                  rounded-full
-                  border-[7px]
-                  border-gray-500/45
-                  bg-white/90
-                  cursor-pointer
-                  transition
-                  hover:scale-105
-                  max-[700px]:right-5
-                  max-[700px]:bottom-[25px]
-                "
+          fixed
+          bottom-6
+          right-6
+          z-[120]
+          flex
+          h-[76px]
+          w-[76px]
+          items-center
+          justify-center
+          rounded-full
+          border-[6px]
+          border-gray-500/40
+          bg-white
+          shadow-lg
+          transition-transform
+          duration-200
+          hover:scale-105
+          max-[700px]:bottom-5
+          max-[700px]:right-5
+          max-[700px]:h-[62px]
+          max-[700px]:w-[62px]
+        "
       >
         <span
           className="
-                    w-[51px]
-                    h-[51px]
-                    grid
-                    place-items-center
-                    rounded-full
-                    bg-[#ed0016]
-                    text-white
-                  "
+            flex
+            h-[51px]
+            w-[51px]
+            items-center
+            justify-center
+            rounded-full
+            bg-[#ed0016]
+            text-white
+            max-[700px]:h-[43px]
+            max-[700px]:w-[43px]
+          "
         >
-          <LuMessageSquareMore size={27} strokeWidth={2} />
+          <LuMessageSquareMore
+            size={27}
+            strokeWidth={2}
+            className="max-[700px]:h-[23px] max-[700px]:w-[23px]"
+          />
         </span>
       </a>
     </main>
   );
-}
-
+};
 
 /* ==============================================================
    MOBILE NAV LINK
@@ -824,16 +1048,17 @@ function MobileLink({ href, text, close }) {
       href={href}
       onClick={close}
       className="
-        border-b
-        border-b-2
-        border-gray-300
-        py-4
-        text-[16px]
-        font-semibold
+        block
         w-full
+        border-b
+        border-gray-300
+        py-5
         text-center
+        text-[15px]
+        font-semibold
+        text-black
         transition
-        hover:text-isoColor1
+        hover:text-[#ed0016]
       "
     >
       {text}
@@ -841,16 +1066,38 @@ function MobileLink({ href, text, close }) {
   );
 }
 
+/* ==============================================================
+   MOBILE TOP PILL
+============================================================== */
+
+function MobilePill({ text }) {
+  return (
+    <div
+      className="
+        flex
+        h-[34px]
+        shrink-0
+        items-center
+        justify-center
+        rounded-full
+        border
+        border-gray-300
+        px-3
+        text-[9px]
+        font-semibold
+        text-black
+      "
+    >
+      {text}
+    </div>
+  );
+}
 
 /* ==============================================================
    QUICK LINK
 ============================================================== */
 
-function QuickLink({
-  title,
-  description,
-  href,
-}) {
+function QuickLink({ title, description, href }) {
   return (
     <a
       href={href}
@@ -867,23 +1114,19 @@ function QuickLink({
         lg:py-6
       "
     >
-
       <div
         className="
           text-[16px]
           font-bold
           text-gray-900
           transition
-          group-hover:text-isoColor1
+          group-hover:text-[#ed0016]
         "
       >
         {title}
       </div>
 
-      <div className="mt-1 text-xs text-gray-500">
-        {description}
-      </div>
-
+      <div className="mt-1 text-xs text-gray-500">{description}</div>
     </a>
   );
 }
