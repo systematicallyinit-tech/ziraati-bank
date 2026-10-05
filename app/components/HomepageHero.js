@@ -460,7 +460,8 @@ export const HomepageHero = () => {
               fixed
               left-0
               right-0
-              top-full
+              top-0
+              bottom-0
               z-[110]
               max-h-[calc(100vh-100px)]
               overflow-y-auto
