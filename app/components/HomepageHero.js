@@ -420,7 +420,7 @@ export const HomepageHero = () => {
                 border-[1.5px]
                 border-[#ed0016]
                 px-2
-                text-[11px]
+                text-sm
                 font-semibold
                 text-black
               "
@@ -440,7 +440,7 @@ export const HomepageHero = () => {
                 border-[1.5px]
                 border-[#ed0016]
                 px-2
-                text-[11px]
+                text-sm
                 font-semibold
                 text-black
               "
