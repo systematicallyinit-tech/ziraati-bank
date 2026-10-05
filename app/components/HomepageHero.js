@@ -508,84 +508,85 @@ export const HomepageHero = () => {
 
             {/* MAIN LINKS */}
 
-            <nav className="px-4 pt-10">
+            <nav className="flex flex-col justify-center items-center w-full text-lg gap-2 py-10">
               <MobileLink
                 href="/signup"
                 text="Individual"
-                close={closeMobileMenu}
+                close={() => setMobileMenu(false)}
               />
 
               <MobileLink
                 href="/signup"
                 text="Commercial"
-                close={closeMobileMenu}
+                close={() => setMobileMenu(false)}
               />
 
-              <MobileLink
-                href="/signup"
-                text="Institutional"
-                close={closeMobileMenu}
-              />
+              <a
+                href={"/signup"}
+                onClick={close}
+                className="
+                py-4
+                text-[16px]
+                font-semibold
+                w-full
+                text-center
+                transition
+                hover:text-isoColor1
+              "
+              >
+                Institutional
+              </a>
 
-              <MobileLink
-                href="/request-offline"
-                text="Offline"
-                close={closeMobileMenu}
-              />
-            </nav>
+              <div className="py-8"></div>
 
-            {/* BOTTOM LINKS */}
-
-            <div className="mt-20 px-4">
-              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[9px] font-medium text-black">
+              <div className="flex w-fit items-center gap-5 text-xs font-medium text-black">
                 <a href="/about" className="hover:underline">
                   About Our Bank
                 </a>
 
-                <span className="h-3 w-px bg-gray-300" />
+                <span className="opacity-50">|</span>
 
                 <a href="/investor-relations" className="hover:underline">
                   Investor Relations
                 </a>
 
-                <span className="h-3 w-px bg-gray-300" />
+                <span className="opacity-50">|</span>
 
                 <a href="/digital-banking" className="hover:underline">
                   Digital Banking
                 </a>
 
-                <span className="h-3 w-px bg-gray-300" />
+                <span className="opacity-50">|</span>
 
                 <a href="/campaigns" className="hover:underline">
                   Campaigns
                 </a>
               </div>
 
-              {/* CALL SEARCH */}
+              {/* MOBILE LOGIN */}
 
               <button
                 type="button"
                 className="
-                  mb-5
-                  mt-4
+                  mt-5
                   flex
-                  h-[40px]
+                  h-12
                   w-full
                   items-center
                   justify-between
+                  px-6
                   rounded-full
-                  border
+                  text-sm
+                  border-2
                   border-gray-300
-                  px-5
-                  text-[11px]
-                  font-medium
-                  text-gray-600
+                  font-semibold
+                  text-gray-500
                 "
               >
                 <span>CALL</span>
-                <LuSearch size={18} />
+                <span className="text-3xl">⌕</span>
               </button>
-            </div>
+            </nav>
           </div>
         )}
       </header>
@@ -986,53 +987,42 @@ export const HomepageHero = () => {
       ======================================================== */}
 
       <a
-        target="_blank"
-        rel="noopener noreferrer"
         href="https://tawk.to/chat/6ab431538582123445b61beb/1k37u1coh"
+         target="_blank"
         aria-label="Customer support"
         className="
-          fixed
-          bottom-6
-          right-6
-          z-[120]
-          flex
-          h-[76px]
-          w-[76px]
-          items-center
-          justify-center
-          rounded-full
-          border-[6px]
-          border-gray-500/40
-          bg-white
-          shadow-lg
-          transition-transform
-          duration-200
-          hover:scale-105
-          max-[700px]:bottom-5
-          max-[700px]:right-5
-          max-[700px]:h-[62px]
-          max-[700px]:w-[62px]
-        "
+                  fixed
+                  bottom-6
+                  right-5
+                  z-40
+                  w-[78px]
+                  h-[78px]
+                  p-0
+                  grid
+                  place-items-center
+                  rounded-full
+                  border-[7px]
+                  border-gray-500/45
+                  bg-white/90
+                  cursor-pointer
+                  transition
+                  hover:scale-105
+                  max-[700px]:right-5
+                  max-[700px]:bottom-[25px]
+                "
       >
         <span
           className="
-            flex
-            h-[51px]
-            w-[51px]
-            items-center
-            justify-center
-            rounded-full
-            bg-[#ed0016]
-            text-white
-            max-[700px]:h-[43px]
-            max-[700px]:w-[43px]
-          "
+                    w-[51px]
+                    h-[51px]
+                    grid
+                    place-items-center
+                    rounded-full
+                    bg-[#ed0016]
+                    text-white
+                  "
         >
-          <LuMessageSquareMore
-            size={27}
-            strokeWidth={2}
-            className="max-[700px]:h-[23px] max-[700px]:w-[23px]"
-          />
+          <LuMessageSquareMore size={27} strokeWidth={2} />
         </span>
       </a>
     </main>
