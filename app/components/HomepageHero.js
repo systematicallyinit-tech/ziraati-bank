@@ -480,7 +480,7 @@ export const HomepageHero = () => {
               <MobilePill text="Cards bankkart" />
               <MobilePill text="Süper Şube" />
 
-              <span className="ml-auto shrink-0 text-[10px] font-medium">
+              <span className="ml-auto shrink-0 text-sm font-medium">
                 English
               </span>
             </div>
@@ -508,7 +508,7 @@ export const HomepageHero = () => {
 
             {/* MAIN LINKS */}
 
-            <nav className="flex flex-col justify-center items-center w-full text-lg gap-2 py-10">
+            <nav className="flex flex-col justify-center px-4 items-center w-full text-lg gap-2 py-10">
               <MobileLink
                 href="/signup"
                 text="Individual"
@@ -1074,7 +1074,7 @@ function MobilePill({ text }) {
         border
         border-gray-300
         px-3
-        text-[9px]
+        text-sm
         font-semibold
         text-black
       "
