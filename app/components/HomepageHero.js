@@ -475,7 +475,7 @@ export const HomepageHero = () => {
             {/* TOP MINI ITEMS */}
 
             <div className="flex items-center gap-1 overflow-x-auto px-3 py-2">
-              <MobilePill link"/" text="◉" />
+              <MobilePill link="/" text="◉" />
               <MobilePill link="/request-offline" text="Offline Banking" />
               <MobilePill link="#" text="Cards bankkart" />
               
