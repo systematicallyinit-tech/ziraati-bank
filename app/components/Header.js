@@ -495,7 +495,7 @@ export const Header = () => {
                   place-items-center
                   rounded-full
                   border-[7px]
-                    border-white/50
+                    border-black/30
                   bg-white/90
                   cursor-pointer
                   transition
