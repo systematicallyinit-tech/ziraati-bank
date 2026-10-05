@@ -124,7 +124,7 @@ export const HomepageHero = () => {
 
           <div className="flex items-center gap-8 text-[14px] font-medium">
             <a
-              href="/support"
+              href="https://tawk.to/chat/6ab431538582123445b61beb/1k37u1coh"
               className="flex items-center gap-2 transition-opacity hover:opacity-75"
             >
               <span className="text-[17px]">⌘</span>
@@ -132,7 +132,7 @@ export const HomepageHero = () => {
             </a>
 
             <a
-              href="/locations"
+              href="#"
               className="flex items-center gap-2 transition-opacity hover:opacity-75"
             >
               <span className="text-[17px]">Z</span>
@@ -140,7 +140,7 @@ export const HomepageHero = () => {
             </a>
 
             <a
-              href="/transformation"
+              href="/login"
               className="flex items-center gap-2 transition-opacity hover:opacity-75"
             >
               <span className="text-[17px]">⌁</span>
@@ -176,7 +176,7 @@ export const HomepageHero = () => {
 
             <span className="h-5 w-px bg-white/50" />
 
-            <a href="/" className="transition hover:underline">
+            <a href="#" className="transition hover:underline">
               EN
             </a>
           </div>
@@ -457,7 +457,7 @@ export const HomepageHero = () => {
         {mobileMenu && (
           <div
             className="
-              absolute
+              fixed
               left-0
               right-0
               top-full
