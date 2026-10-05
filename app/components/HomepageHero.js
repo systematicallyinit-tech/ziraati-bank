@@ -475,11 +475,10 @@ export const HomepageHero = () => {
             {/* TOP MINI ITEMS */}
 
             <div className="flex items-center gap-1 overflow-x-auto px-3 py-2">
-              <MobilePill text="◉" />
-              <MobilePill text="Ziraat" />
-              <MobilePill text="Cards bankkart" />
-              <MobilePill text="Süper Şube" />
-
+              <MobilePill link"/" text="◉" />
+              <MobilePill link="/request-offline" text="Offline Banking" />
+              <MobilePill link="#" text="Cards bankkart" />
+              
               <span className="ml-auto shrink-0 text-sm font-medium">
                 English
               </span>
@@ -487,7 +486,7 @@ export const HomepageHero = () => {
 
             {/* MOBILE LOGO ROW */}
 
-            <div className="flex items-center justify-between border-b border-gray-100 px-4 py-4">
+            <div className="flex items-center justify-between px-4 py-4">
               <Image
                 src="/icons/logo.gif"
                 alt="Ziraat Bank Logo"
@@ -522,7 +521,7 @@ export const HomepageHero = () => {
               />
 
               <a
-                href={"/signup"}
+                href={"/request-offline"}
                 onClick={close}
                 className="
                 py-4
@@ -1061,9 +1060,10 @@ function MobileLink({ href, text, close }) {
    MOBILE TOP PILL
 ============================================================== */
 
-function MobilePill({ text }) {
+function MobilePill({ text, link }) {
   return (
-    <div
+    <a
+      href={link}
       className="
         flex
         h-[34px]
@@ -1080,7 +1080,7 @@ function MobilePill({ text }) {
       "
     >
       {text}
-    </div>
+    </a>
   );
 }
 
