@@ -2,11 +2,7 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import {
-  LuMessageSquareMore,
-  LuSearch,
-  LuX,
-} from "react-icons/lu";
+import { LuMessageSquareMore, LuSearch, LuX } from "react-icons/lu";
 
 /* ============================================================
    METAGRAM HERO SLIDES
@@ -101,22 +97,6 @@ export const HomepageHero = () => {
   }, [paused]);
 
   /* ============================================================
-     LOCK BODY WHEN MOBILE MENU IS OPEN
-  ============================================================ */
-
-  useEffect(() => {
-    if (mobileMenu) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileMenu]);
-
-  /* ============================================================
      CHANGE SLIDE
   ============================================================ */
 
@@ -134,18 +114,15 @@ export const HomepageHero = () => {
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-gray-900">
-
       {/* ========================================================
           DESKTOP TOP BAR
       ======================================================== */}
 
       <div className="hidden h-[48px] bg-[#ed0016] text-white lg:block">
         <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-8">
-
           {/* LEFT */}
 
           <div className="flex items-center gap-8 text-[14px] font-medium">
-
             <a
               href="/support"
               className="flex items-center gap-2 transition-opacity hover:opacity-75"
@@ -169,13 +146,11 @@ export const HomepageHero = () => {
               <span className="text-[17px]">⌁</span>
               Transformation
             </a>
-
           </div>
 
           {/* RIGHT */}
 
           <div className="flex items-center gap-6 text-[13px]">
-
             <a href="/fees" className="transition hover:underline">
               Product and Service Fees
             </a>
@@ -204,9 +179,7 @@ export const HomepageHero = () => {
             <a href="/" className="transition hover:underline">
               EN
             </a>
-
           </div>
-
         </div>
       </div>
 
@@ -224,21 +197,18 @@ export const HomepageHero = () => {
       </div>
 
       {/* ========================================================
-          MAIN HEADER
+          MAIN NAVIGATION
       ======================================================== */}
 
-      <header className="relative z-50 border-b border-gray-100 bg-white">
-
+      <header className="relative z-[100] border-b border-gray-100 bg-white">
         {/* ======================================================
             DESKTOP HEADER
         ====================================================== */}
 
         <div className="mx-auto hidden h-[82px] max-w-[1440px] items-center justify-between px-8 lg:flex">
-
           {/* LOGO */}
 
           <a href="/" className="shrink-0">
-
             <Image
               src="/icons/logo.gif"
               alt="Ziraat Bank Logo"
@@ -247,13 +217,11 @@ export const HomepageHero = () => {
               priority
               className="h-[46px] w-auto object-contain"
             />
-
           </a>
 
           {/* DESKTOP NAV */}
 
           <nav className="flex items-center">
-
             <a
               href="/signup"
               className="
@@ -395,9 +363,7 @@ export const HomepageHero = () => {
             >
               Become a Customer
             </a>
-
           </nav>
-
         </div>
 
         {/* ======================================================
@@ -405,13 +371,10 @@ export const HomepageHero = () => {
         ====================================================== */}
 
         <div className="block lg:hidden">
-
           <div className="flex h-[66px] items-center justify-between px-4">
-
             {/* LOGO */}
 
             <a href="/" className="shrink-0">
-
               <Image
                 src="/icons/logo.gif"
                 alt="Ziraat Bank Logo"
@@ -420,15 +383,14 @@ export const HomepageHero = () => {
                 priority
                 className="h-[38px] w-auto object-contain"
               />
-
             </a>
 
             {/* MENU BUTTON */}
 
             <button
               type="button"
-              onClick={() => setMobileMenu(true)}
-              aria-label="Open menu"
+              onClick={() => setMobileMenu(!mobileMenu)}
+              aria-label="Toggle menu"
               className="
                 flex
                 h-10
@@ -439,15 +401,13 @@ export const HomepageHero = () => {
                 text-black
               "
             >
-              ☰
+              {mobileMenu ? <LuX size={25} /> : "☰"}
             </button>
-
           </div>
 
           {/* MOBILE LOGIN BUTTONS */}
 
           <div className="flex items-center gap-2 px-4 pb-3">
-
             <a
               href="/login"
               className="
@@ -487,102 +447,67 @@ export const HomepageHero = () => {
             >
               Become a Customer
             </a>
-
           </div>
-
         </div>
 
-      </header>
+        {/* ======================================================
+            MOBILE MENU
+        ====================================================== */}
 
-      {/* ========================================================
-          FIXED MOBILE FULL-SCREEN MENU
+        {mobileMenu && (
+          <div
+            className="
+              absolute
+              left-0
+              right-0
+              top-full
+              z-[110]
+              max-h-[calc(100vh-100px)]
+              overflow-y-auto
+              border-t
+              border-gray-200
+              bg-white
+              shadow-2xl
+              lg:hidden
+            "
+          >
+            {/* TOP MINI ITEMS */}
 
-          Covers the ENTIRE header + viewport.
-      ======================================================== */}
-
-      {mobileMenu && (
-        <div
-          className="
-            fixed
-            inset-0
-            z-[9999]
-            flex
-            h-[100dvh]
-            w-screen
-            flex-col
-            overflow-hidden
-            bg-white
-            lg:hidden
-          "
-        >
-
-          {/* ====================================================
-              TOP MINI MENU
-          ==================================================== */}
-
-          <div className="shrink-0 border-b border-gray-100 px-3 py-2">
-
-            <div className="flex items-center gap-1 overflow-x-auto">
-
+            <div className="flex items-center gap-1 overflow-x-auto px-3 py-2">
               <MobilePill text="◉" />
-
               <MobilePill text="Ziraat" />
-
               <MobilePill text="Cards bankkart" />
-
               <MobilePill text="Süper Şube" />
 
-              <span className="ml-auto shrink-0 px-2 text-[10px] font-medium">
+              <span className="ml-auto shrink-0 text-[10px] font-medium">
                 English
               </span>
-
             </div>
 
-          </div>
+            {/* MOBILE LOGO ROW */}
 
-          {/* ====================================================
-              SINGLE MENU LOGO
+            <div className="flex items-center justify-between border-b border-gray-100 px-4 py-4">
+              <Image
+                src="/icons/logo.gif"
+                alt="Ziraat Bank Logo"
+                width={150}
+                height={45}
+                className="h-[34px] w-auto object-contain"
+              />
 
-              There is ONLY ONE logo inside the fixed menu.
-          ==================================================== */}
+              <button
+                type="button"
+                onClick={closeMobileMenu}
+                aria-label="Close menu"
+                className="text-2xl font-light text-black"
+              >
+                <LuX size={22} />
+              </button>
+            </div>
 
-          <div className="flex shrink-0 items-center justify-between border-b border-gray-100 px-4 py-4">
-
-            <Image
-              src="/icons/logo.gif"
-              alt="Ziraat Bank Logo"
-              width={150}
-              height={45}
-              priority
-              className="h-[34px] w-auto object-contain"
-            />
-
-            <button
-              type="button"
-              onClick={closeMobileMenu}
-              aria-label="Close menu"
-              className="
-                flex
-                h-9
-                w-9
-                items-center
-                justify-center
-                text-black
-              "
-            >
-              <LuX size={23} strokeWidth={1.8} />
-            </button>
-
-          </div>
-
-          {/* ====================================================
-              MAIN MENU CONTENT
-          ==================================================== */}
-
-          <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
+            {/* MAIN LINKS */}
 
             <nav className="px-4 pt-10">
-
               <MobileLink
                 href="/signup"
                 text="Individual"
@@ -606,65 +531,44 @@ export const HomepageHero = () => {
                 text="Offline"
                 close={closeMobileMenu}
               />
-
             </nav>
 
-            {/* ==================================================
-                BOTTOM MENU LINKS
-            ================================================== */}
+            {/* BOTTOM LINKS */}
 
-            <div className="mt-auto px-4 pb-5 pt-12">
-
+            <div className="mt-20 px-4">
               <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[9px] font-medium text-black">
-
-                <a
-                  href="/about"
-                  onClick={closeMobileMenu}
-                  className="hover:underline"
-                >
+                <a href="/about" className="hover:underline">
                   About Our Bank
                 </a>
 
                 <span className="h-3 w-px bg-gray-300" />
 
-                <a
-                  href="/investor-relations"
-                  onClick={closeMobileMenu}
-                  className="hover:underline"
-                >
+                <a href="/investor-relations" className="hover:underline">
                   Investor Relations
                 </a>
 
                 <span className="h-3 w-px bg-gray-300" />
 
-                <a
-                  href="/digital-banking"
-                  onClick={closeMobileMenu}
-                  className="hover:underline"
-                >
+                <a href="/digital-banking" className="hover:underline">
                   Digital Banking
                 </a>
 
                 <span className="h-3 w-px bg-gray-300" />
 
-                <a
-                  href="/campaigns"
-                  onClick={closeMobileMenu}
-                  className="hover:underline"
-                >
+                <a href="/campaigns" className="hover:underline">
                   Campaigns
                 </a>
-
               </div>
 
-              {/* CALL / SEARCH */}
+              {/* CALL SEARCH */}
 
               <button
                 type="button"
                 className="
+                  mb-5
                   mt-4
                   flex
-                  h-[42px]
+                  h-[40px]
                   w-full
                   items-center
                   justify-between
@@ -678,17 +582,12 @@ export const HomepageHero = () => {
                 "
               >
                 <span>CALL</span>
-
                 <LuSearch size={18} />
-
               </button>
-
             </div>
-
           </div>
-
-        </div>
-      )}
+        )}
+      </header>
 
       {/* ========================================================
           HERO SECTION
@@ -703,166 +602,127 @@ export const HomepageHero = () => {
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-
         {/* ======================================================
-            ABSTRACT RED BACKGROUND
+            ZIRAAT STYLE GEOMETRIC BACKGROUND
         ====================================================== */}
 
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+            opacity-[0.16]
+          "
+          style={{
+            backgroundImage: `
+              linear-gradient(
+                135deg,
+                transparent 0%,
+                transparent 44%,
+                rgba(120,0,0,0.35) 44.2%,
+                rgba(120,0,0,0.35) 44.7%,
+                transparent 45%
+              ),
+              linear-gradient(
+                45deg,
+                transparent 0%,
+                transparent 48%,
+                rgba(120,0,0,0.25) 48.2%,
+                rgba(120,0,0,0.25) 48.7%,
+                transparent 49%
+              ),
+              linear-gradient(
+                135deg,
+                transparent 0%,
+                transparent 68%,
+                rgba(255,255,255,0.08) 68.2%,
+                rgba(255,255,255,0.08) 69%,
+                transparent 69.2%
+              )
+            `,
+            backgroundSize: "180px 180px",
+          }}
+        />
 
-          {/* LARGE DARK ANGULAR SHAPE */}
+        {/* LARGE DIAGONAL SHAPES */}
 
-          <div
-            className="
-              absolute
-              -left-[160px]
-              -top-[180px]
-              h-[620px]
-              w-[620px]
-              rotate-[45deg]
-              border-[2px]
-              border-[#b50012]/30
-            "
-          />
+        <div className="pointer-events-none absolute -left-20 top-20 h-[360px] w-[360px] rotate-45 border border-black/10" />
 
-          {/* SECOND ANGULAR SHAPE */}
-
-          <div
-            className="
-              absolute
-              -left-[70px]
-              top-[20px]
-              h-[500px]
-              w-[500px]
-              rotate-[45deg]
-              border-[2px]
-              border-[#b50012]/25
-            "
-          />
-
-          {/* RIGHT ANGULAR SHAPE */}
-
-          <div
-            className="
-              absolute
-              -right-[250px]
-              -bottom-[300px]
-              h-[700px]
-              w-[700px]
-              rotate-[45deg]
-              border-[2px]
-              border-[#a90011]/25
-            "
-          />
-
-          {/* ==================================================
-              REPEATING DIAGONAL PATTERN
-
-              This creates the angular pattern visible
-              throughout the red hero.
-          ================================================== */}
-
-          <div
-            className="absolute inset-0 opacity-[0.24]"
-            style={{
-              backgroundImage: `
-                linear-gradient(
-                  135deg,
-                  transparent 0px,
-                  transparent 28px,
-                  rgba(120,0,12,0.30) 29px,
-                  rgba(120,0,12,0.30) 32px,
-                  transparent 33px,
-                  transparent 58px
-                ),
-                linear-gradient(
-                  45deg,
-                  transparent 0px,
-                  transparent 42px,
-                  rgba(120,0,12,0.22) 43px,
-                  rgba(120,0,12,0.22) 46px,
-                  transparent 47px,
-                  transparent 78px
-                )
-              `,
-              backgroundSize: "130px 130px",
-            }}
-          />
-
-          {/* ==================================================
-              LARGE CHEVRON
-          ================================================== */}
-
-          <div
-            className="
-              absolute
-              left-[4%]
-              top-[5%]
-              h-[340px]
-              w-[340px]
-              rotate-[45deg]
-              border-[3px]
-              border-[#a90011]/20
-            "
-          />
-
-          {/* ==================================================
-              SUBTLE WHITE LIGHT
-          ================================================== */}
-
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-br
-              from-white/[0.05]
-              via-transparent
-              to-black/[0.05]
-            "
-          />
-
-        </div>
-
-        {/* ======================================================
-            HERO CONTENT
-        ====================================================== */}
+        <div className="pointer-events-none absolute -right-40 bottom-[-250px] h-[600px] w-[600px] rotate-45 border border-black/10" />
 
         <div className="relative mx-auto max-w-[1440px]">
-
           {/* ====================================================
-              DESKTOP HERO — SIMPLE 40 / 60 GRID
+              DESKTOP HERO
           ==================================================== */}
 
-          <div className="hidden min-h-[470px] grid-cols-[40%_60%] lg:grid">
+          <div className="relative hidden min-h-[470px] lg:block">
+            {/* ==================================================
+                IMAGE
+            ================================================== */}
+
+            <div className="absolute right-0 top-0 h-full w-[60%] overflow-hidden">
+              <img
+                key={slide.image}
+                src={slide.image}
+                alt={slide.title}
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                  transition-all
+                  duration-700
+                "
+              />
+
+              {/* RED BLEND */}
+
+              <div
+                className="
+                  absolute
+                  inset-y-0
+                  left-0
+                  w-[30%]
+                  bg-gradient-to-r
+                  from-[#ed0016]
+                  via-[#ed0016]/60
+                  to-transparent
+                "
+              />
+
+              {/* TOP BLEND */}
+
+              <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-[#ed0016]/20 to-transparent" />
+            </div>
 
             {/* ==================================================
-                LEFT — 40%
+                CONTENT
             ================================================== */}
 
             <div
               className="
                 relative
-                z-10
+                z-20
                 flex
+                min-h-[470px]
+                w-[58%]
                 flex-col
                 justify-center
                 px-8
-                py-14
+                py-12
                 xl:px-8
               "
             >
-
               <h1
                 key={`title-${slide.id}`}
                 className="
-                  max-w-[610px]
-                  text-[35px]
+                  max-w-[790px]
+                  text-[36px]
                   font-black
                   uppercase
                   leading-[1.18]
-                  tracking-[-0.7px]
+                  tracking-[-0.8px]
                   text-white
-                  xl:text-[40px]
+                  xl:text-[41px]
                 "
               >
                 {slide.title}
@@ -873,12 +733,12 @@ export const HomepageHero = () => {
                   key={`description-${slide.id}`}
                   className="
                     mt-5
-                    max-w-[590px]
-                    text-[18px]
+                    max-w-[700px]
+                    text-[19px]
                     font-semibold
                     leading-[1.65]
                     text-white
-                    xl:text-[20px]
+                    xl:text-[21px]
                   "
                 >
                   {slide.description}
@@ -888,11 +748,10 @@ export const HomepageHero = () => {
               {/* CTA */}
 
               <div>
-
                 <a
                   href={slide.buttonLink}
                   className="
-                    mt-7
+                    mt-6
                     inline-flex
                     min-w-[215px]
                     items-center
@@ -915,22 +774,21 @@ export const HomepageHero = () => {
                 >
                   {slide.button}
                 </a>
-
               </div>
 
-              {/* =================================================
-                  DESKTOP SLIDER
-              ================================================= */}
+              {/* ==================================================
+                  DESKTOP SLIDER CONTROLS
+              ================================================== */}
 
-              <div className="mt-14 flex items-center gap-2">
-
+              <div className="absolute bottom-6 left-8 flex items-center gap-2">
                 {heroSlides.map((item, index) => (
                   <button
                     key={item.id}
-                    type="button"
                     onClick={() => changeSlide(index)}
                     aria-label={`Go to slide ${index + 1}`}
                     className={`
+                      h-[11px]
+                      w-[11px]
                       rounded-full
                       border
                       border-white
@@ -939,11 +797,13 @@ export const HomepageHero = () => {
                       ${
                         currentSlide === index
                           ? "h-[18px] w-[18px] border-[3px] bg-[#ed0016] ring-2 ring-white"
-                          : "h-[11px] w-[11px] bg-white/45"
+                          : "bg-white/45"
                       }
                     `}
                   />
                 ))}
+
+                {/* PAUSE */}
 
                 <button
                   type="button"
@@ -952,8 +812,8 @@ export const HomepageHero = () => {
                   className="
                     ml-1
                     flex
-                    h-[24px]
-                    w-[24px]
+                    h-[23px]
+                    w-[23px]
                     items-center
                     justify-center
                     rounded-full
@@ -966,93 +826,20 @@ export const HomepageHero = () => {
                 >
                   {paused ? "▶" : "Ⅱ"}
                 </button>
-
               </div>
-
             </div>
-
-            {/* ==================================================
-                RIGHT — 60%
-            ================================================== */}
-
-            <div className="relative min-h-[470px] overflow-hidden">
-
-              <img
-                key={slide.image}
-                src={slide.image}
-                alt={slide.title}
-                className="
-                  absolute
-                  inset-0
-                  h-full
-                  w-full
-                  object-cover
-                  transition-opacity
-                  duration-700
-                "
-              />
-
-              {/* RED BLEND AT IMAGE EDGE */}
-
-              <div
-                className="
-                  absolute
-                  inset-y-0
-                  left-0
-                  w-[100px]
-                  bg-gradient-to-r
-                  from-[#ed0016]/50
-                  to-transparent
-                "
-              />
-
-              {/* TOP IMAGE BLEND */}
-
-              <div
-                className="
-                  absolute
-                  inset-x-0
-                  top-0
-                  h-[25px]
-                  bg-gradient-to-b
-                  from-[#ed0016]/20
-                  to-transparent
-                "
-              />
-
-            </div>
-
           </div>
 
           {/* ====================================================
               MOBILE HERO
-
-              KEPT SIMPLE AND RESPONSIVE
           ==================================================== */}
 
           <div className="block lg:hidden">
+            {/* ==================================================
+                MOBILE CONTENT
+            ================================================== */}
 
-            {/* IMAGE */}
-
-            <div className="relative h-[180px] overflow-hidden sm:h-[270px]">
-
-              <img
-                key={slide.image}
-                src={slide.image}
-                alt={slide.title}
-                className="
-                  h-full
-                  w-full
-                  object-cover
-                "
-              />
-
-            </div>
-
-            {/* RED CONTENT */}
-
-            <div className="relative px-5 pb-6 pt-6">
-
+            <div className="relative z-10 px-5 pb-6 pt-6">
               <h1
                 key={`mobile-title-${slide.id}`}
                 className="
@@ -1088,10 +875,36 @@ export const HomepageHero = () => {
                 </p>
               )}
 
+              {/* MOBILE IMAGE */}
+
+              <div
+                className="
+                  relative
+                  mx-auto
+                  mt-5
+                  h-[180px]
+                  w-full
+                  max-w-[520px]
+                  overflow-hidden
+                  bg-white
+                  sm:h-[270px]
+                "
+              >
+                <img
+                  key={`mobile-image-${slide.image}`}
+                  src={slide.image}
+                  alt={slide.title}
+                  className="
+                    h-full
+                    w-full
+                    object-cover
+                  "
+                />
+              </div>
+
               {/* CTA */}
 
               <div className="flex justify-center">
-
                 <a
                   href={slide.buttonLink}
                   className="
@@ -1114,13 +927,11 @@ export const HomepageHero = () => {
                 >
                   {slide.button}
                 </a>
-
               </div>
 
-              {/* MOBILE DOTS */}
+              {/* MOBILE SLIDER */}
 
               <div className="mt-5 flex items-center justify-center gap-[5px]">
-
                 {heroSlides.map((item, index) => (
                   <button
                     key={item.id}
@@ -1163,15 +974,10 @@ export const HomepageHero = () => {
                 >
                   {paused ? "▶" : "Ⅱ"}
                 </button>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       {/* ========================================================
@@ -1207,7 +1013,6 @@ export const HomepageHero = () => {
           max-[700px]:w-[62px]
         "
       >
-
         <span
           className="
             flex
@@ -1228,9 +1033,7 @@ export const HomepageHero = () => {
             className="max-[700px]:h-[23px] max-[700px]:w-[23px]"
           />
         </span>
-
       </a>
-
     </main>
   );
 };
@@ -1323,9 +1126,7 @@ function QuickLink({ title, description, href }) {
         {title}
       </div>
 
-      <div className="mt-1 text-xs text-gray-500">
-        {description}
-      </div>
+      <div className="mt-1 text-xs text-gray-500">{description}</div>
     </a>
   );
 }
