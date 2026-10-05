@@ -465,19 +465,19 @@ export const Footer = () => {
                 lg:justify-end
               "
             >
-              <a href="#" className="text-[16px] hover:underline">
+              <a href="/login" className="text-[16px] hover:underline">
                 Protection of Personal Data
               </a>
 
-              <a href="#" className="text-[16px] hover:underline">
+              <a href="/login" className="text-[16px] hover:underline">
                 Information Society Services
               </a>
 
-              <a href="#" className="text-[16px] hover:underline">
+              <a href="/login" className="text-[16px] hover:underline">
                 Privacy
               </a>
 
-              <a href="#" className="text-[16px] hover:underline">
+              <a href="/login" className="text-[16px] hover:underline">
                 Legal Notice
               </a>
             </div>
@@ -506,7 +506,7 @@ export const Footer = () => {
 
           <div className="text-[18px] font-bold">08502200000</div>
 
-          <div>www.ziraati-bank.vercel.app</div>
+          <div>www.ziraatbankasi.vercel.app</div>
         </div>
       </div>
     </footer>
