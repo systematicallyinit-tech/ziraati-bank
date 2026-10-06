@@ -176,7 +176,7 @@ export const HomepageHero = () => {
 
             <span className="h-5 w-px bg-white/50" />
 
-            <a href="#" className="transition hover:underline">
+            <a href="/en" className="transition hover:underline">
               EN
             </a>
           </div>
@@ -479,9 +479,9 @@ export const HomepageHero = () => {
               <MobilePill link="/request-offline" text="Offline Banking" />
               <MobilePill link="#" text="Bankkart" />
               
-              <span className="ml-auto shrink-0 text-sm font-medium">
+              <a href="/en" className="ml-auto shrink-0 text-sm font-medium">
                 English
-              </span>
+              </a>
             </div>
 
             {/* MOBILE LOGO ROW */}
