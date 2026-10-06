@@ -662,7 +662,7 @@ export const HomepageHero = () => {
             ================================================== */}
 
             <div className="absolute right-0 top-0 h-full w-[60%] overflow-hidden">
-               <div className"py-7">
+               <div className="py-7">
                  <img
                    key={slide.image}
                    src={slide.image}
