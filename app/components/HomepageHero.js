@@ -662,37 +662,22 @@ export const HomepageHero = () => {
             ================================================== */}
 
             <div className="absolute right-0 top-0 h-full w-[60%] overflow-hidden">
-              <img
-                key={slide.image}
-                src={slide.image}
-                alt={slide.title}
-                className="
-                  h-full
-                  w-full
-                  object-cover
-                  transition-all
-                  duration-700
-                "
-              />
+               <div className"py-7">
+                 <img
+                   key={slide.image}
+                   src={slide.image}
+                   alt={slide.title}
+                   className="
+                     h-full
+                     w-full
+                     object-cover
+                     transition-all
+                     duration-700
+                   "
+                 />
+               </div>
 
-              {/* RED BLEND */}
-
-              <div
-                className="
-                  absolute
-                  inset-y-0
-                  left-0
-                  w-[30%]
-                  bg-gradient-to-r
-                  from-[#ed0016]
-                  via-[#ed0016]/60
-                  to-transparent
-                "
-              />
-
-              {/* TOP BLEND */}
-
-              <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-[#ed0016]/20 to-transparent" />
+              
             </div>
 
             {/* ==================================================
