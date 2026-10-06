@@ -149,7 +149,7 @@ export const Header = () => {
               Our Bank
             </a>
             <span className="opacity-50">|</span>
-            <a href="/en" className="hover:underline">
+            <a href="/" className="hover:underline">
               EN
             </a>
           </div>
