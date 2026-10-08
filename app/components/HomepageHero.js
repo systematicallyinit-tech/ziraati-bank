@@ -619,7 +619,7 @@ export const HomepageHero = () => {
               DESKTOP HERO
           ==================================================== */}
 
-          <div className="relative hidden lg:block">
+          <div className="relative hidden min-h-[470px] lg:block">
             {/* ==================================================
                 IMAGE
             ================================================== */}
@@ -652,6 +652,7 @@ export const HomepageHero = () => {
                 relative
                 z-20
                 flex
+                min-h-[470px]
                 w-[58%]
                 flex-col
                 justify-center
@@ -744,7 +745,7 @@ export const HomepageHero = () => {
                       duration-200
                       ${
                         currentSlide === index
-                          ? "h-[14px] w-[14px] bg-[#fff] ring-4 ring-black"
+                          ? "h-[12px] w-[12px] bg-[#ed0016] ring-4 ring-black"
                           : "bg-white/45"
                       }
                     `}
@@ -1069,4 +1070,3 @@ function QuickLink({ title, description, href }) {
     </a>
   );
 }
-
