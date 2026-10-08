@@ -745,8 +745,8 @@ export const HomepageHero = () => {
                       duration-200
                       ${
                         currentSlide === index
-                          ? "h-[12px] w-[12px] bg-[#ed0016] ring-4 ring-black"
-                          : "bg-white/45"
+                          ? "h-[12px] w-[12px] bg-[#fff] ring-4 ring-black"
+                          : "bg-white/45 border-0"
                       }
                     `}
                   />
@@ -766,7 +766,7 @@ export const HomepageHero = () => {
                     items-center
                     justify-center
                     rounded-full
-                    border
+                    border-2
                     border-white
                     text-[8px]
                     font-bold
