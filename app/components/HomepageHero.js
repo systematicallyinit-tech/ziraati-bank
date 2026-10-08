@@ -608,7 +608,7 @@ export const HomepageHero = () => {
         ====================================================== */}
 
         <div
-          className="relative min-h-screen w-full overflow-hidden bg-[#ed0016] bg-cover bg-center bg-no-repeat"
+          className="relative min-h-screen w-full h-fit overflow-hidden bg-[#ed0016] bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/img/herobackground.png')",
           }}
@@ -745,7 +745,7 @@ export const HomepageHero = () => {
                       duration-200
                       ${
                         currentSlide === index
-                          ? "h-[18px] w-[18px] border-[3px] bg-[#ed0016] ring-2 ring-white"
+                          ? "h-[18px] w-[18px] border-[3px] bg-[#fff] ring-2 ring-black"
                           : "bg-white/45"
                       }
                     `}
