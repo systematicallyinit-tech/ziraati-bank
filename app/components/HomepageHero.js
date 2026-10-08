@@ -608,7 +608,7 @@ export const HomepageHero = () => {
         ====================================================== */}
 
 
-         <div className="relative min-h-screen w-full overflow-hidden bg-[#ed0016]">
+        <div className="relative min-h-screen w-full overflow-hidden bg-[#ed0016]">
 
       {/* =========================================================
           MAIN RED GRADIENT
@@ -1324,6 +1324,7 @@ export const HomepageHero = () => {
             </div>
           </div>
         </div>
+      </div>
       </section>
 
       {/* ========================================================
