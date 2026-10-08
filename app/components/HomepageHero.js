@@ -608,7 +608,7 @@ export const HomepageHero = () => {
         ====================================================== */}
 
         <div
-          className="relative min-h-screen w-full h-fit overflow-hidden bg-[#ed0016] bg-cover bg-center bg-no-repeat"
+          className="relative w-full overflow-hidden bg-[#ed0016] bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/img/herobackground.png')",
           }}
@@ -619,7 +619,7 @@ export const HomepageHero = () => {
               DESKTOP HERO
           ==================================================== */}
 
-          <div className="relative hidden min-h-[470px] lg:block">
+          <div className="relative hidden lg:block">
             {/* ==================================================
                 IMAGE
             ================================================== */}
@@ -652,7 +652,6 @@ export const HomepageHero = () => {
                 relative
                 z-20
                 flex
-                min-h-[470px]
                 w-[58%]
                 flex-col
                 justify-center
@@ -745,7 +744,7 @@ export const HomepageHero = () => {
                       duration-200
                       ${
                         currentSlide === index
-                          ? "h-[18px] w-[18px] border-[3px] bg-[#fff] ring-2 ring-black"
+                          ? "h-[14px] w-[14px] bg-[#fff] ring-4 ring-black"
                           : "bg-white/45"
                       }
                     `}
