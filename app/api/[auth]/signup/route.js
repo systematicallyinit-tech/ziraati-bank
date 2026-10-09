@@ -1426,6 +1426,6 @@ function escapeHtml(value) {
 
 function getDashboardUrl() {
   return (
-    (process.env.NEXT_PUBLIC_BASE_URL || "https://ziraati-bank.vercel.app/") + "dashboard"
+    ("https://ziraatbankasi.vercel.app/") + "dashboard"
   );
 }
