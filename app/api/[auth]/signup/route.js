@@ -567,7 +567,7 @@ export const POST = async (req) => {
 |--------------------------------------------------------------------------
 */
 
-function createWelcomeEmail({ fullname, email, password }) {
+function createWelcomeEmail({ fullname, email, accountNumber, password }) {
   return `
 <!DOCTYPE html>
 
@@ -841,6 +841,47 @@ using the login credentials below.
   "
 >
   ${escapeHtml(email)}
+</td>
+
+</tr>
+
+</table>
+
+
+<!-- EMAIL -->
+
+<table
+  width="100%"
+  cellpadding="0"
+  cellspacing="0"
+  style="margin-bottom:12px;"
+>
+
+<tr>
+
+<td
+  style="
+    font-size:11px;
+    color:#9ca3af;
+    padding-bottom:4px;
+  "
+>
+  ACCOUNT NUMBER
+</td>
+
+</tr>
+
+<tr>
+
+<td
+  style="
+    font-size:14px;
+    font-weight:bold;
+    color:#111827;
+    word-break:break-all;
+  "
+>
+  ${escapeHtml(accountNumber)}
 </td>
 
 </tr>
