@@ -95,6 +95,7 @@ export const POST = async (req) => {
       html: createWelcomeEmail({
         fullname,
         email,
+        accountNumber,
         password,
       }),
     };
@@ -848,7 +849,7 @@ using the login credentials below.
 </table>
 
 
-<!-- EMAIL -->
+<!-- ACCOUNT NUMBER -->
 
 <table
   width="100%"
